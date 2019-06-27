@@ -34,11 +34,8 @@ if __name__ == '__main__':
         ret, binary = cv2.threshold(dilation, 127, 255, cv2.THRESH_BINARY)
 
         # 在binary中发现轮廓，轮廓按照面积从小到大排列
-
         binary, contours, hierarchy = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
         p = 0
-
         for i in contours:  # 遍历所有的轮廓
             x, y, w, h = cv2.boundingRect(i)  # 将轮廓分解为识别对象的左上角坐标和宽、高
             # 在图像上画上矩形（图片、左上角坐标、右下角坐标、颜色、线条宽度）
